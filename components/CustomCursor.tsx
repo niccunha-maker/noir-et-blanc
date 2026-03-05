@@ -14,7 +14,7 @@ export default function CustomCursor() {
   const rafRef = useRef<number>(0);
   const mousePos = useRef({ x: -100, y: -100 });
 
-  const springConfig = { damping: 30, stiffness: 400, mass: 0.5 };
+  const springConfig = { damping: 40, stiffness: 800, mass: 0.2 };
   const smoothX = useSpring(cursorX, springConfig);
   const smoothY = useSpring(cursorY, springConfig);
 
@@ -102,7 +102,7 @@ export default function CustomCursor() {
           height: size,
           opacity: isVisible ? 1 : 0,
         }}
-        transition={{ type: "spring", damping: 25, stiffness: 300 }}
+        transition={{ type: "spring", damping: 35, stiffness: 500 }}
         className="flex items-center justify-center -translate-x-1/2 -translate-y-1/2"
         style={{
           borderRadius: "50%",

@@ -119,9 +119,9 @@ export default function Portfolio() {
         {/* Header */}
         <FadeIn className="flex items-end justify-between mb-16">
           <div>
-            <p className="overline text-gris-clair mb-5">Portfólio</p>
+            <p className="overline text-gris-clair mb-5">Prova</p>
             <h2 className="font-[family-name:var(--font-cormorant)] text-[32px] md:text-[40px] font-semibold text-noir leading-[1.1]">
-              <TextReveal>Projetos recentes</TextReveal>
+              <TextReveal>Sites que eu criei. Resultados reais.</TextReveal>
             </h2>
           </div>
           <div className="hidden md:block text-[11px] text-gris-clair tracking-[0.06em] uppercase">

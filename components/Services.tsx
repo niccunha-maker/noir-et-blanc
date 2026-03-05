@@ -86,12 +86,15 @@ export default function Services() {
       <div className="max-w-[1200px] mx-auto px-6 lg:px-16">
         {/* Header */}
         <FadeIn className="mb-20 max-w-[520px]">
-          <p className="overline text-gris-clair mb-5">Serviços</p>
-          <h2 className="font-[family-name:var(--font-cormorant)] text-[32px] md:text-[40px] font-semibold text-noir leading-[1.1] mb-6">
+          <p className="overline text-gris-clair mb-5">Investimento</p>
+          <h2 className="font-[family-name:var(--font-cormorant)] text-[32px] md:text-[40px] font-semibold text-noir leading-[1.1] mb-4">
             <TextReveal>
               Escolha seu plano. Comece a atrair clientes.
             </TextReveal>
           </h2>
+          <p className="text-[13px] text-gris-clair mb-6">
+            Entrega em até 7 dias. Sem mensalidade surpresa. Cancele quando quiser.
+          </p>
           <div className="editorial-rule" />
         </FadeIn>
 

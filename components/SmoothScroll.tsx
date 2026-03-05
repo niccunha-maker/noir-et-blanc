@@ -10,9 +10,9 @@ export default function SmoothScroll({
 }) {
   useEffect(() => {
     const lenis = new Lenis({
-      duration: 1.2,
-      easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-      touchMultiplier: 2,
+      duration: 0.8,
+      easing: (t: number) => 1 - Math.pow(1 - t, 3),
+      touchMultiplier: 1.5,
     });
 
     function raf(time: number) {
@@ -31,7 +31,7 @@ export default function SmoothScroll({
       const target = document.querySelector(href);
       if (target) {
         e.preventDefault();
-        lenis.scrollTo(target as HTMLElement, { offset: -80, duration: 1.6 });
+        lenis.scrollTo(target as HTMLElement, { offset: -80, duration: 1 });
       }
     }
 

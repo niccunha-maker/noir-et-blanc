@@ -126,68 +126,68 @@ export default function Hero() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-0">
           {/* Content — 7 columns for asymmetry */}
           <div className="lg:col-span-7 flex flex-col justify-center">
-            {/* Overline */}
-            <div className="overflow-hidden mb-8">
+            {/* Overline — brand */}
+            <div className="overflow-hidden mb-6">
               <motion.p
                 initial={{ y: "100%" }}
                 animate={{ y: "0%" }}
                 transition={{ duration: 0.6, delay: 0.3, ease }}
                 className="overline text-gris-clair"
               >
-                Sites que atraem clientes
+                Noir & Blanc
               </motion.p>
             </div>
 
-            {/* Logo name — text reveal word by word */}
-            <h1 className="font-[family-name:var(--font-cormorant)] text-[clamp(44px,8vw,76px)] font-light tracking-[0.1em] text-noir leading-[0.95] mb-6">
+            {/* Main headline — the pain */}
+            <h1 className="font-[family-name:var(--font-cormorant)] text-[clamp(36px,6.5vw,64px)] font-light text-noir leading-[1.05] mb-3">
               <TextReveal delay={0.5}>
-                NOIR
+                Seus clientes te procuram
               </TextReveal>
-              {" "}
-              <span className="text-noir/15">
-                <TextReveal delay={0.65}>
-                  &
-                </TextReveal>
-              </span>
-              {" "}
+              <br />
               <TextReveal delay={0.7}>
-                BLANC
+                no Google agora.
               </TextReveal>
             </h1>
+
+            {/* The twist — emotional punch */}
+            <motion.p
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.8, delay: 1.1, ease }}
+              className="font-[family-name:var(--font-cormorant)] text-[clamp(26px,4vw,42px)] font-semibold text-noir leading-[1.15] mb-6"
+            >
+              <TextReveal delay={1.1}>
+                Quem eles encontram?
+              </TextReveal>
+            </motion.p>
 
             {/* Editorial rule */}
             <motion.div
               initial={{ scaleX: 0 }}
               animate={{ scaleX: 1 }}
-              transition={{ duration: 1, delay: 0.9, ease }}
-              className="w-full max-w-[360px] origin-left mb-8"
+              transition={{ duration: 1, delay: 1.4, ease }}
+              className="w-full max-w-[360px] origin-left mb-6"
             >
               <div className="editorial-rule" />
             </motion.div>
 
-            {/* Tagline — word reveal */}
-            <p className="font-[family-name:var(--font-cormorant)] text-[clamp(26px,4vw,42px)] font-semibold text-noir leading-[1.15] mb-5">
-              <TextReveal delay={1}>
-                Seus clientes te procuram no Google. Eles te encontram?
-              </TextReveal>
-            </p>
-
-            {/* Subtitle */}
+            {/* The answer — cause-effect, direct */}
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, delay: 1.3, ease }}
-              className="text-[15px] text-gris leading-[1.8] mb-14 max-w-[440px]"
+              transition={{ duration: 0.7, delay: 1.6, ease }}
+              className="text-[15px] text-gris leading-[1.8] mb-12 max-w-[420px]"
             >
-              Eu crio o site. O Google faz o resto. Em 7 dias você tem uma
-              presença profissional que trabalha 24h atraindo clientes novos.
+              Eu crio seu site em 7 dias. Otimizado pro Google, rápido, bonito
+              e pronto pra transformar visitante em cliente. Você cuida do
+              negócio — o site cuida do resto.
             </motion.p>
 
             {/* CTAs */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 1.5, ease }}
+              transition={{ duration: 0.6, delay: 1.8, ease }}
               className="flex flex-col sm:flex-row items-start gap-6"
             >
               <a
@@ -196,7 +196,7 @@ export default function Hero() {
                 rel="noopener noreferrer"
                 className="btn-fill btn-fill-or bg-noir text-blanc text-[12px] font-medium tracking-[0.06em] uppercase px-10 py-4 transition-colors duration-500"
               >
-                <span>Solicitar Proposta</span>
+                <span>Quero meu site em 7 dias</span>
               </a>
               <a
                 href="#portfolio"
