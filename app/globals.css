@@ -1,26 +1,222 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-noir: #000000;
+  --color-blanc: #FFFFFF;
+  --color-noir-90: #1A1A1A;
+  --color-noir-70: #333333;
+  --color-gris: #666666;
+  --color-gris-clair: #999999;
+  --color-argent: #CCCCCC;
+  --color-blanc-casse: #F5F5F5;
+  --color-or: #D4A853;
+
+  --font-display: var(--font-cormorant);
+  --font-body: var(--font-inter);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* Remove default scroll-behavior — Lenis handles it */
+html {
+  scroll-behavior: auto;
+}
+
+html.lenis, html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--color-blanc);
+  color: var(--color-noir);
+  font-family: var(--font-body), -apple-system, sans-serif;
+  overflow-x: hidden;
+}
+
+/* Hide default cursor on desktop — custom cursor replaces it */
+@media (pointer: fine) {
+  * {
+    cursor: none !important;
+  }
+}
+
+::selection {
+  background: var(--color-noir);
+  color: var(--color-blanc);
+}
+
+/* Film grain overlay */
+.grain::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  pointer-events: none;
+  opacity: 0.02;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 256px 256px;
+}
+
+/* Editorial horizontal rule */
+.editorial-rule {
+  position: relative;
+  width: 100%;
+  height: 1px;
+  background: var(--color-argent);
+}
+
+.editorial-rule::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 48px;
+  height: 1px;
+  background: var(--color-noir);
+}
+
+/* Overline label */
+.overline {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-family: var(--font-body);
+}
+
+/* Smooth underline hover */
+.link-hover {
+  position: relative;
+}
+
+.link-hover::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: currentColor;
+  transition: width 0.4s cubic-bezier(0.76, 0, 0.24, 1);
+}
+
+.link-hover:hover::after {
+  width: 100%;
+}
+
+/* Button fill hover effect */
+.btn-fill {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-fill > span {
+  position: relative;
+  z-index: 1;
+}
+
+.btn-fill::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  transform: translateY(100%);
+  transition: transform 0.5s cubic-bezier(0.76, 0, 0.24, 1);
+}
+
+.btn-fill:hover::before {
+  transform: translateY(0);
+}
+
+.btn-fill-noir::before { background: var(--color-noir); }
+.btn-fill-or::before { background: var(--color-or); }
+.btn-fill-blanc::before { background: var(--color-blanc); }
+
+/* Focus visible */
+:focus-visible {
+  outline: 2px solid var(--color-noir);
+  outline-offset: 4px;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 4px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-argent);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-gris);
+}
+
+/* Floating label pattern for contact form */
+.float-label {
+  position: relative;
+}
+
+.float-label input,
+.float-label textarea {
+  width: 100%;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  color: white;
+  font-size: 14px;
+  padding: 20px 0 8px;
+  outline: none;
+  transition: border-color 0.5s ease;
+}
+
+.float-label input:focus,
+.float-label textarea:focus {
+  border-color: rgba(255, 255, 255, 0.4);
+}
+
+.float-label label {
+  position: absolute;
+  left: 0;
+  top: 20px;
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.2);
+  pointer-events: none;
+  transition: all 0.3s cubic-bezier(0.76, 0, 0.24, 1);
+}
+
+.float-label input:focus ~ label,
+.float-label input:not(:placeholder-shown) ~ label,
+.float-label textarea:focus ~ label,
+.float-label textarea:not(:placeholder-shown) ~ label {
+  top: 2px;
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-or);
+}
+
+/* Gold focus underline animation */
+.float-label::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: var(--color-or);
+  transition: width 0.7s cubic-bezier(0.76, 0, 0.24, 1);
+}
+
+.float-label:focus-within::after {
+  width: 100%;
 }
