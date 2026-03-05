@@ -6,14 +6,14 @@ import { FadeIn } from "./TextReveal";
 
 const stats = [
   {
-    value: "7",
-    suffix: "d",
-    label: "entrega rápida — seu site no ar em até uma semana",
+    value: "97",
+    suffix: "%",
+    label: "dos consumidores pesquisam online antes de visitar um local",
   },
   {
-    value: "100",
+    value: "85",
     suffix: "%",
-    label: "mobile-first — sites otimizados para qualquer tela",
+    label: "das empresas com site aumentam seu faturamento",
   },
   {
     value: "24/7",
@@ -21,9 +21,9 @@ const stats = [
     label: "seu site trabalha por você sem parar",
   },
   {
-    value: "1:1",
+    value: "2-3",
     suffix: "",
-    label: "atendimento personalizado do início ao fim",
+    label: "meses para o investimento se pagar",
   },
 ];
 
