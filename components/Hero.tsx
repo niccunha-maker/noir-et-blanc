@@ -134,7 +134,7 @@ export default function Hero() {
                 transition={{ duration: 0.6, delay: 0.3, ease }}
                 className="overline text-gris-clair"
               >
-                Estúdio de criação digital
+                Sites que atraem clientes
               </motion.p>
             </div>
 
@@ -168,7 +168,7 @@ export default function Hero() {
             {/* Tagline — word reveal */}
             <p className="font-[family-name:var(--font-cormorant)] text-[clamp(26px,4vw,42px)] font-semibold text-noir leading-[1.15] mb-5">
               <TextReveal delay={1}>
-                Seu negócio merece ser encontrado.
+                Seus clientes te procuram no Google. Eles te encontram?
               </TextReveal>
             </p>
 
@@ -179,9 +179,8 @@ export default function Hero() {
               transition={{ duration: 0.7, delay: 1.3, ease }}
               className="text-[15px] text-gris leading-[1.8] mb-14 max-w-[440px]"
             >
-              Criação de sites profissionais para negócios locais em São Paulo.
-              Sites responsivos, otimizados para Google e prontos para atrair
-              novos clientes.
+              Eu crio o site. O Google faz o resto. Em 7 dias você tem uma
+              presença profissional que trabalha 24h atraindo clientes novos.
             </motion.p>
 
             {/* CTAs */}

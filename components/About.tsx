@@ -59,7 +59,7 @@ export default function About() {
             </FadeIn>
 
             <h2 className="font-[family-name:var(--font-cormorant)] text-[32px] md:text-[40px] font-semibold text-noir leading-[1.1] mb-8">
-              <TextReveal>Design com propósito</TextReveal>
+              <TextReveal>Seu site é o seu melhor vendedor</TextReveal>
             </h2>
 
             <FadeIn delay={0.2}>
@@ -68,16 +68,17 @@ export default function About() {
 
             <FadeIn delay={0.3}>
               <p className="text-[15px] text-gris leading-[1.85] mb-6">
-                Negócios locais extraordinários merecem presença digital à
-                altura. Eu crio sites que não apenas existem — eles trabalham.
-                Atraem, convencem e convertem.
+                Cliente pesquisa no Google → encontra seu site → entra em
+                contato. Simples assim. Sem site, esse cliente vai pro
+                concorrente.
               </p>
             </FadeIn>
 
             <FadeIn delay={0.4}>
               <p className="text-[15px] text-gris leading-[1.85] mb-6">
-                Cada detalhe é intencional. Cada página é otimizada. Cada
-                projeto é tratado como se fosse o único.
+                Eu crio sites rápidos, otimizados pro Google e prontos pra
+                converter visitante em cliente. Você cuida do seu negócio.
+                O site cuida do resto.
               </p>
             </FadeIn>
 

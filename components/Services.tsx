@@ -21,7 +21,7 @@ const packages: Package[] = [
     name: "Pacote Inicial",
     price: "R$ 997",
     installment: "12x de R$ 97",
-    ideal: "Ideal para profissionais autônomos e consultórios pequenos",
+    ideal: "Para profissionais que precisam de presença online",
     features: [
       { text: "Site one-page responsivo (mobile-first)", included: true },
       { text: "Até 5 seções (Início, Sobre, Serviços, Depoimentos, Contato)", included: true },
@@ -40,13 +40,13 @@ const packages: Package[] = [
     name: "Pacote Pro",
     price: "R$ 1.997",
     installment: "12x de R$ 197",
-    ideal: "Ideal para clínicas, consultórios e lojas com vários serviços",
+    ideal: "Para empresas que querem gerar clientes",
     popular: true,
     features: [
       { text: "Site multi-página (até 8 páginas)", included: true },
       { text: "Design personalizado com identidade visual", included: true },
       { text: "SEO básico (meta tags, sitemap, velocidade)", included: true },
-      { text: "Blog integrado (até 3 artigos iniciais)", included: true },
+      { text: "Blog pronto para SEO (3 artigos iniciais)", included: true },
       { text: "Formulário de contato + WhatsApp", included: true },
       { text: "Google Meu Negócio otimizado", included: true },
       { text: "Integração redes sociais", included: true },
@@ -61,7 +61,7 @@ const packages: Package[] = [
     name: "Pacote Gold",
     price: "R$ 3.497",
     installment: "12x de R$ 347",
-    ideal: "Ideal para clínicas maiores, redes e negócios ambiciosos",
+    ideal: "Para negócios que querem escalar marketing",
     features: [
       { text: "Tudo do Pacote Pro +", included: true },
       { text: "Até 15 páginas completas", included: true },
@@ -89,7 +89,7 @@ export default function Services() {
           <p className="overline text-gris-clair mb-5">Serviços</p>
           <h2 className="font-[family-name:var(--font-cormorant)] text-[32px] md:text-[40px] font-semibold text-noir leading-[1.1] mb-6">
             <TextReveal>
-              Escolha o pacote ideal para seu negócio
+              Escolha seu plano. Comece a atrair clientes.
             </TextReveal>
           </h2>
           <div className="editorial-rule" />

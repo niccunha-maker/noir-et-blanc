@@ -170,11 +170,11 @@ export default function Contact() {
               <p className="overline text-gris mb-5">Contato</p>
             </FadeIn>
             <h2 className="font-[family-name:var(--font-cormorant)] text-[clamp(40px,7vw,64px)] font-light text-blanc leading-[1.05] mb-5">
-              <TextReveal>Vamos começar?</TextReveal>
+              <TextReveal>Pronto pra ser encontrado?</TextReveal>
             </h2>
             <FadeIn delay={0.3}>
               <p className="text-[15px] text-gris-clair max-w-[400px]">
-                Solicite uma proposta personalizada e sem compromisso.
+                Me conta sobre seu negócio. Em 7 dias, seus clientes te encontram no Google.
               </p>
             </FadeIn>
           </div>
