@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion, useScroll, useTransform, AnimatePresence } from "framer-motion";
 import { useRef, useState, useEffect, useCallback } from "react";
 import { FadeIn, TextReveal } from "./TextReveal";
 
@@ -118,7 +118,12 @@ function SitePreview({ href }: { href: string }) {
 
 const ease: [number, number, number, number] = [0.76, 0, 0.24, 1];
 
+const INITIAL_COUNT = 4;
+
 export default function Portfolio() {
+  const [showAll, setShowAll] = useState(false);
+  const visibleProjects = showAll ? projects : projects.slice(0, INITIAL_COUNT);
+
   const sectionRef = useRef(null);
   const { scrollYProgress } = useScroll({
     target: sectionRef,
@@ -155,76 +160,100 @@ export default function Portfolio() {
 
         {/* Grid */}
         <div className="grid grid-cols-1 md:grid-cols-12 gap-4">
-          {projects.map((project, i) => (
-            <motion.a
-              key={project.name}
-              href={project.href}
-              target="_blank"
-              rel="noopener noreferrer"
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-60px" }}
-              transition={{ delay: i * 0.12, duration: 0.8, ease }}
-              data-cursor-view
-              className={`relative group cursor-pointer overflow-hidden block ${project.span}`}
-              style={{ aspectRatio: "16/10" }}
-            >
-              {/* Background */}
-              <div
-                className="absolute inset-0"
-                style={{ background: project.accent }}
+          <AnimatePresence initial={false}>
+            {visibleProjects.map((project, i) => (
+              <motion.a
+                key={project.name}
+                href={project.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                initial={{ opacity: 0, y: 40 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-60px" }}
+                transition={{ delay: i * 0.12, duration: 0.8, ease }}
+                layout
+                data-cursor-view
+                className={`relative group cursor-pointer overflow-hidden block ${project.span}`}
+                style={{ aspectRatio: "16/10" }}
               >
+                {/* Background */}
                 <div
-                  className="absolute inset-0 opacity-[0.03]"
-                  style={{
-                    backgroundImage:
-                      "linear-gradient(#000 1px, transparent 1px), linear-gradient(90deg, #000 1px, transparent 1px)",
-                    backgroundSize: "40px 40px",
-                  }}
-                />
-              </div>
-
-              {/* Preview — slides up on hover */}
-              <div className="absolute inset-0 transition-transform duration-700 ease-[cubic-bezier(0.76,0,0.24,1)] group-hover:-translate-y-[28%]">
-                <SitePreview href={project.href} />
-              </div>
-
-              {/* Number */}
-              <div className="absolute top-5 left-6 z-20 text-[11px] font-medium tracking-[0.1em] text-noir/25 group-hover:text-noir/40 transition-all duration-500 ease-[cubic-bezier(0.76,0,0.24,1)] group-hover:-translate-y-[28cqh]">
-                0{i + 1}
-              </div>
-
-              {/* Description — anchored at bottom, revealed as preview slides up */}
-              <div className="absolute bottom-0 left-0 right-0 bg-noir p-6 lg:p-8 translate-y-full group-hover:translate-y-0 transition-transform duration-700 ease-[cubic-bezier(0.76,0,0.24,1)]">
-                <div className="flex items-end justify-between gap-4">
-                  <div>
-                    <p className="text-[10px] font-medium tracking-[0.12em] uppercase text-blanc/35 mb-1.5">
-                      {project.type}
-                    </p>
-                    <p className="font-[family-name:var(--font-cormorant)] text-[24px] lg:text-[30px] font-light text-blanc tracking-[0.02em] leading-[1.1]">
-                      {project.name}
-                    </p>
-                    <p className="text-[12px] text-blanc/40 mt-2 leading-[1.5] max-w-[320px]">
-                      {project.caption}
-                    </p>
-                  </div>
-                  <svg
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="white"
-                    strokeWidth="1"
-                    className="rotate-[-45deg] flex-shrink-0 opacity-40"
-                  >
-                    <line x1="5" y1="12" x2="19" y2="12" />
-                    <polyline points="12 5 19 12 12 19" />
-                  </svg>
+                  className="absolute inset-0"
+                  style={{ background: project.accent }}
+                >
+                  <div
+                    className="absolute inset-0 opacity-[0.03]"
+                    style={{
+                      backgroundImage:
+                        "linear-gradient(#000 1px, transparent 1px), linear-gradient(90deg, #000 1px, transparent 1px)",
+                      backgroundSize: "40px 40px",
+                    }}
+                  />
                 </div>
-              </div>
-            </motion.a>
-          ))}
+
+                {/* Preview — slides up on hover */}
+                <div className="absolute inset-0 transition-transform duration-700 ease-[cubic-bezier(0.76,0,0.24,1)] group-hover:-translate-y-[28%]">
+                  <SitePreview href={project.href} />
+                </div>
+
+                {/* Number */}
+                <div className="absolute top-5 left-6 z-20 text-[11px] font-medium tracking-[0.1em] text-noir/25 group-hover:text-noir/40 transition-all duration-500 ease-[cubic-bezier(0.76,0,0.24,1)] group-hover:-translate-y-[28cqh]">
+                  0{i + 1}
+                </div>
+
+                {/* Description — anchored at bottom, revealed as preview slides up */}
+                <div className="absolute bottom-0 left-0 right-0 bg-noir p-6 lg:p-8 translate-y-full group-hover:translate-y-0 transition-transform duration-700 ease-[cubic-bezier(0.76,0,0.24,1)]">
+                  <div className="flex items-end justify-between gap-4">
+                    <div>
+                      <p className="text-[10px] font-medium tracking-[0.12em] uppercase text-blanc/35 mb-1.5">
+                        {project.type}
+                      </p>
+                      <p className="font-[family-name:var(--font-cormorant)] text-[24px] lg:text-[30px] font-light text-blanc tracking-[0.02em] leading-[1.1]">
+                        {project.name}
+                      </p>
+                      <p className="text-[12px] text-blanc/40 mt-2 leading-[1.5] max-w-[320px]">
+                        {project.caption}
+                      </p>
+                    </div>
+                    <svg
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="white"
+                      strokeWidth="1"
+                      className="rotate-[-45deg] flex-shrink-0 opacity-40"
+                    >
+                      <line x1="5" y1="12" x2="19" y2="12" />
+                      <polyline points="12 5 19 12 12 19" />
+                    </svg>
+                  </div>
+                </div>
+              </motion.a>
+            ))}
+          </AnimatePresence>
         </div>
+
+        {/* Toggle button */}
+        <FadeIn className="flex justify-center mt-12">
+          <button
+            onClick={() => setShowAll((prev) => !prev)}
+            className="group/btn flex items-center gap-2 text-[11px] font-medium tracking-[0.12em] uppercase text-gris-clair hover:text-noir transition-colors duration-500"
+          >
+            {showAll
+              ? "Ver menos"
+              : `Ver todos os projetos (${projects.length})`}
+            <motion.span
+              animate={{ rotate: showAll ? 180 : 0 }}
+              transition={{ duration: 0.4, ease }}
+              className="inline-block"
+            >
+              ↓
+            </motion.span>
+          </button>
+        </FadeIn>
       </div>
     </section>
   );
