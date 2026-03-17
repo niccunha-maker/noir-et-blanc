@@ -6,9 +6,9 @@ import Image from "next/image";
 import { FadeIn, TextReveal } from "./TextReveal";
 
 const miniStats = [
-  { value: "7d", label: "entrega rápida" },
-  { value: "1:1", label: "atendimento pessoal" },
-  { value: "SP", label: "São Paulo" },
+  { value: "7", label: "projetos entregues" },
+  { value: "100%", label: "clientes satisfeitos" },
+  { value: "5★", label: "avaliação média" },
 ];
 
 const ease: [number, number, number, number] = [0.76, 0, 0.24, 1];

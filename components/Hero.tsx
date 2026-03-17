@@ -183,6 +183,25 @@ export default function Hero() {
               negócio — o site cuida do resto.
             </motion.p>
 
+            {/* Social proof */}
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 1.7, ease }}
+              className="flex items-center gap-3 mb-8"
+            >
+              <div className="flex -space-x-2">
+                {["L", "C", "R"].map((initial, i) => (
+                  <div key={i} className="w-8 h-8 rounded-full bg-noir border-2 border-blanc flex items-center justify-center">
+                    <span className="text-blanc text-[10px] font-bold">{initial}</span>
+                  </div>
+                ))}
+              </div>
+              <p className="text-[12px] text-gris leading-tight">
+                <span className="text-noir font-semibold">7 negócios</span> já aparecem<br />no Google com a Noir & Blanc
+              </p>
+            </motion.div>
+
             {/* CTAs */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
