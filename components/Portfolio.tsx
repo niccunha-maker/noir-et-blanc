@@ -37,6 +37,30 @@ const projects = [
     span: "md:col-span-7",
     accent: "#D8D8D8",
   },
+  {
+    name: "Lucas Ferreira Personal",
+    type: "Personal Trainer",
+    caption: "Site com SEO local para personal trainer no Itaim Bibi.",
+    href: "/demos/lucas/",
+    span: "md:col-span-6",
+    accent: "#0a0a0a",
+  },
+  {
+    name: "Camila Rocha Personal",
+    type: "Personal Trainer",
+    caption: "Identidade orgânica para personal trainer especializada em emagrecimento.",
+    href: "/demos/camila/",
+    span: "md:col-span-6",
+    accent: "#faf8f5",
+  },
+  {
+    name: "Rafael Mendes Personal",
+    type: "Personal Trainer",
+    caption: "Design editorial de alto contraste para personal trainer em Pinheiros.",
+    href: "/demos/rafael/",
+    span: "md:col-span-12",
+    accent: "#0a0a0a",
+  },
 ];
 
 function SitePreview({ href }: { href: string }) {
@@ -125,7 +149,7 @@ export default function Portfolio() {
             </h2>
           </div>
           <div className="hidden md:block text-[11px] text-gris-clair tracking-[0.06em] uppercase">
-            04 projetos
+            07 projetos
           </div>
         </FadeIn>
 
